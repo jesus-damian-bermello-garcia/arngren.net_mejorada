@@ -5,7 +5,11 @@
 }
 
 /* Body */
+body{
+    padding-top: 90px;
+}
 body {
+    padding: to;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #3d1b11 0%, #000000 100%);
     min-height: 100vh;
@@ -88,13 +92,25 @@ body {
 
 /* Navegación */
 .nav {
+    position: flex;
+    background-color: #060606;
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 10px 20px;
+    top: 20px;        /* separado del borde superior */
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 40px;
     flex-wrap: wrap;
 }
-
+.nav {
+  position: fixed;
+  top: px;        /* separado del borde superior */
+  left: 20px;       /* separado del borde izquierdo */
+  right: 20px;      /* separado del borde derecho */
+  z-index: 1000;    /* para que esté por encima de otros elementos */
+}
 .nav-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
