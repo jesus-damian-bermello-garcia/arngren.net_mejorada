@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arngrent</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".nav-btn");
+            const products = document.querySelectorAll(".product-card");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const category = button.getAttribute("data-category");
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+
+                    products.forEach(product => {
+                        if (category === "all" || product.getAttribute("data-category") === category) {
+                            product.style.display = "block";
+                        } else {
+                            product.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section class="language-selector">
+            <label for="language-select" style="color: white; font-weight: bold; margin-right: 10px;">Idioma:</label>
+            <select id="language-select" name="language">
+                <option value="es" selected>Español</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                 <option value="it">Italiano</option>
+            </select>
+        </section>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">ARNGREN</div>
+            <div class="tagline">Gadgets Extraordinarios desde 2004</div>
+        </div>
+        
+
+        <!-- Navigation -->
+        <div class="nav">
+            <button class="nav-btn active" data-category="all">Todos</button>
+            <button class="nav-btn" data-category="vehicles">Vehículos</button>
+            <button class="nav-btn" data-category="robots">Robots</button>
+            <button class="nav-btn" data-category="toys">Juguetes</button>
+            <button class="nav-btn" data-category="gadgets">Artilugios</button>
+            <button class="nav-btn" data-category="extreme">Extremos</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Helicóptero -->
+            <div class="product-card featured-card" data-category="extreme">
+                <div class="product-badge">¡ÉPICO!</div>
+                <div class="product-icon">
+                    <img src="imagenes/helicoptero.png" alt="Helicóptero 2 Plazas">
+                </div>
+                <div class="product-title">Helicóptero 2 Plazas</div>
+                <div class="product-description">
+                    Construye tu propio helicóptero real con capacidad para dos personas. El kit incluye un chasis reforzado, rotor principal, palas de fibra de carbono, motor de combustión de alta eficiencia, controles hidráulicos, y sistema de navegación GPS. Ideal para entusiastas avanzados de la aviación. Tiempo de ensamblaje estimado: 180 horas.
+                </div>
+                <div class="product-price">kr. 398.000,-</div>
+            </div>
+            <!-- Avión de Combate -->
+            <div class="product-card featured-card" data-category="extreme">
+                <div class="product-badge">¡EXCLUSIVO!</div>
+                <div class="product-icon">
+                    <img src="imagenes/avion.jpg" alt="Avión de Combate 2 Plazas">
+                </div>
+                <div class="product-title">Avión de Combate 2 Plazas</div>
+                <div class="product-description">
+                    Kit avanzado para construir un avión de combate real. Incluye fuselaje aerodinámico, alas de alta resistencia, motor a reacción, sistema de control de vuelo digital, y asientos eyectables. Requiere licencia de piloto y certificación. Ideal para coleccionistas y entusiastas de la aviación militar.
+                </div>
+                <div class="product-price">kr. 1.500.000,-</div>
+            </div>
+
+            <!-- Porsche -->
+            <div class="product-card" data-category="vehicles">
+                <div class="product-badge">NUEVO</div>
+                <div class="product-icon">
+                    <img src="imagenes/porsche.jpg" alt="Porsche Eléctrico">
+                </div>
+                <div class="product-title">Porsche Eléctrico</div>
+                <div class="product-description">
+                    Este deportivo eléctrico combina lujo y potencia. Motor dual 400 kW, tracción total, batería de 100 kWh con autonomía real de hasta 300 km. Pantalla central táctil, cámara 360°, sistema de frenado regenerativo y carga rápida (80% en 30 min). Diseñado para quienes exigen alto rendimiento sin sacrificar sostenibilidad.
+                </div>
+                <div class="product-price">kr. 399.890,-</div>
+            </div>
+
+            <!-- Dinosaurio Pleo -->
+            <div class="product-card crazy-card" data-category="robots">
+                <div class="product-icon">
+                    <img src="imagenes/dinosaurio.jpg" alt="Dinosaurio Pleo">
+                </div>
+                <div class="product-title">Dinosaurio Pleo</div>
+                <div class="product-description">
+                    Un robot interactivo con inteligencia artificial que aprende comportamientos según el trato que recibe. Equipado con sensores táctiles, cámaras, micrófonos y reconocimiento de voz. Simula emociones, camina, interactúa con objetos y responde a su entorno. Ideal para educación y entretenimiento infantil.
+                </div>
+                <div class="product-price">kr. 2.999,-</div>
+            </div>
+
+            <!-- Hummer -->
+            <div class="product-card" data-category="vehicles">
+                <div class="product-icon">
+                    <img src="imagenes/hummer.jpg" alt="Hummer H3 Eléctrico">
+                </div>
+                <div class="product-title">Hummer H3 Eléctrico</div>
+                <div class="product-description">
+                    Vehículo todoterreno eléctrico con motor de 200 kW, tracción 4x4, suspensión ajustable, neumáticos todo terreno, y batería de 80 kWh. Puede atravesar terrenos fangosos, rocosos o inundados con facilidad. Incluye pantalla de navegación off-road y cámaras para visión perimetral. Perfecto para aventuras extremas.
+                </div>
+                <div class="product-price">kr. 99.998,-</div>
+            </div>
+
+            <!-- Tanque RC -->
+            <div class="product-card" data-category="toys">
+                <div class="product-badge">POPULAR</div>
+                <div class="product-icon">
+                    <img src="imagenes/tanque.png" alt="Tanque RC 53cm">
+                </div>
+                <div class="product-title">Tanque RC 53cm</div>
+                <div class="product-description">
+                    Réplica a escala de un tanque de combate moderno. Control remoto de largo alcance, torreta giratoria de 360°, disparo de proyectiles plásticos hasta 30 metros, tracción oruga independiente. Batería recargable de litio incluida. Ideal para coleccionistas y aficionados al radiocontrol.
+                </div>
+                <div class="product-price">kr. 998,-</div>
+            </div>
+            <!-- auto a control remoto -->
+            <div class="product-card" data-category="toys">
+                <div class="product-badge">NOVEDAD</div>
+                <div class="product-icon">
+                    <img src="imagenes/auto.jpg" alt="Auto RC 1:10">
+                </div>
+                <div class="product-title">Auto RC 1:10</div>
+                <div class="product-description">
+                    Coche a control remoto de alta velocidad con motor brushless, tracción en las cuatro ruedas, suspensión independiente y carrocería aerodinámica. Alcance de control de hasta 200 metros, batería recargable de larga duración. Ideal para carreras y acrobacias.
+                </div>
+                <div class="product-price">kr. 1.499,-</div>
+            </div>
+
+
+
+            <!-- Drone de Carrera -->
+            <div class="product-card" data-category="gadgets">
+                <div class="product-badge">ALTA VELOCIDAD</div>
+                <div class="product-icon">
+                    <img src="imagenes/drone.jpg" alt="Dron de Carrera 4K">
+                </div>
+                <div class="product-title">Dron de Carrera 4K</div>
+                <div class="product-description">
+                    Diseñado para velocidad y maniobras precisas. Cámara 4K UHD, transmisión en tiempo real, GPS, sensores anticolisión, control remoto ergonómico, y hasta 30 minutos de vuelo. Incluye hélices de repuesto, baterías adicionales y cargador rápido. Perfecto para carreras y grabaciones cinematográficas.
+                </div>
+                <div class="product-price">kr. 3.490,-</div>
+            </div>
+            <!-- Auriculares Inalámbricos -->
+            <div class="product-card" data-category="gadgets">
+                <div class="product-badge">NOVEDAD</div>
+                <div class="product-icon">
+                    <img src="imagenes/auriculares.jpg" alt="Auriculares Inalámbricos">
+                </div>
+                <div class="product-title">Auriculares Inalámbricos</div>
+                <div class="product-description">
+                    Auriculares Bluetooth con cancelación activa de ruido, sonido Hi-Fi, batería de larga duración (hasta 30 horas), y carga rápida. Diseño ergonómico, resistentes al agua IPX5, y controles táctiles. Compatibles con asistentes de voz. Ideales para música, llamadas y entretenimiento.
+                </div>
+                <div class="product-price">kr. 1.199,-</div>
+            </div>
+
+            <!-- Robot de Limpieza -->
+            <div class="product-card" data-category="robots">
+                <div class="product-badge">AUTÓNOMO</div>
+                <div class="product-icon">
+                    <img src="imagenes/robot.jpg" alt="Robot de Limpieza">
+                </div>
+                <div class="product-title">Robot de Limpieza</div>
+                <div class="product-description">
+                    Inteligencia artificial que mapea tu hogar y limpia automáticamente. Equipado con sensores láser LIDAR, control desde app móvil, programación horaria y retorno automático a la base de carga. Aspira, barre y pasa mopa con tanque de agua. Ideal para hogares con mascotas o niños.
+                </div> 
+                <div class="product-price">kr. 2.390,-</div>
+            </div>
+            
+
+        </div>
+
+        
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>frithjof@arngren.net</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+47 22 14 91 66</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+47 92 06 08 73</span>
+                </div>
+            </div>
+            <p>Arngren Sky Commuter AS - Oslo, Noruega</p>
+            <p>Desde 2004 trayendo lo extraordinario a tu puerta</p>
+            
+        </div>
+        <div class="informacion">
+            <p class="disclaimer">Nota: Todos los productos son ficticios y creados para fines de demostración de una mejora de la pagina original.</p>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
